@@ -1,11 +1,12 @@
-#Dance School Management System (ERP)
+# Dance School Management System (ERP)
 This project is a full-stack Django-based ERP system for managing a dance school. It provides features for student enrollment, class scheduling, attendance tracking, instructor management, fee management, and reporting.
 
 ## Prerequisites
--Python 3.x installed
--PostgreSQL or SQLite (default) installed
--pip (Python package manager)
--Virtual environment (recommended)
+
+- Python 3.x installed
+- PostgreSQL or SQLite (default) installed
+- pip (Python package manager)
+- Virtual environment (recommended)
 
 ## Installation Steps
 
