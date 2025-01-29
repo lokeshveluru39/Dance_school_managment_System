@@ -1,0 +1,1 @@
+select * from student_management_app_students limit 3;

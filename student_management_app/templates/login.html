@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Include the Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .login-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .login-logo {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  .login-logo p {
+    color: white;
+    font-weight: bold;
+    font-family: 'Dancing Script', cursive; /* Apply Dancing Script font */
+    font-size: 1.5em; /* Make the text bigger */
+    margin: 0;
+  }
+
+  .login-logo a {
+    color: #9aa4ad; /* Match the color of "Sign in" */
+    font-weight: normal;
+    font-size: 1em; /* Make the text smaller than the Academy name */
+    text-decoration: none;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .login-card-body {
+    padding: 20px;
+  }
+
+  .login-box-msg {
+    color: #6c757d; /* Same color as the "Sign in" text */
+    font-size: 1.5em;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+  }
+</style>
+
+<body class="hold-transition login-page" style="background: url('{% static 'dist/img/background.jpg' %}') no-repeat center center fixed; background-size: cover;">
+  <div class="login-logo">
+    <p>Nritya Tarangini Dance Academy</p>
+    <a href="{% url 'login' %}">Student Management System</a>
+  </div>
+  <div class="login-box">
+    <div class="card">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">Sign in</p>
+
+        <form action="{% url 'doLogin' %}" method="POST">
+        {% csrf_token %}
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" placeholder="Email" name="email">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Password" name="password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12" style="color: beige;">
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+          </div>
+
+          {% comment %} <div class="col-12 text-center">
+            <a href="{% url 'password_reset' %}">Reset Password</a>
+          </div>  {% endcomment %}
+
+          {% comment %} Display Messages {% endcomment %}
+          {% if messages %}
+          <div class="col-12">
+            {% for message in messages %}
+              {% if message.tags == "error" %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                  {{ message }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <!-- /.col -->
+        </form>
+
+      </div>
+    </div>
+  </div>
+  <!-- /.login-box -->
+
+{% endblock %}
+
