@@ -69,5 +69,3 @@ Features:<br>
 * Attendance Tracking: Monitor student attendance and performance.<br>
 * Instructor Management: Maintain instructor details and schedules.<br>
 * Fee Management: Handle fee payments, invoices, and due tracking.<br>
-
-Reporting & Analytics: Generate reports on students, classes, and finances.
